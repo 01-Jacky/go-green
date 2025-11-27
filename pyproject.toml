@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "go-green"
+version = "0.1.0"
+description = "Generate backdated git commits to enhance GitHub activity"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "typer[all]==0.15.1",
+    "GitPython==3.1.43",
+    "python-dateutil==2.9.0",
+    "holidays==0.59",
+]
+
+[project.scripts]
+go-green = "go_green.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+go_green = ["py.typed"]

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  go-green:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: go-green
+    volumes:
+      # Mount the entire project directory to preserve git history
+      - .:/app
+    working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Override command for interactive development
+    # Usage: docker-compose run --rm go-green --help
+    stdin_open: true
+    tty: true
